@@ -9,7 +9,7 @@
       <tr>
         <th>商品番号</th>
         <th>商品名</th>
-        <th>価格</th>
+        <th>税抜価格</th>
       </tr>
     </thead>
     <tbody>

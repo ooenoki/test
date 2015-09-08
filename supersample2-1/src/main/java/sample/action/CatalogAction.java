@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.log4j.Logger;
 import org.seasar.framework.beans.util.Beans;
 import org.seasar.struts.annotation.ActionForm;
 import org.seasar.struts.annotation.Execute;
@@ -25,6 +26,10 @@ public class CatalogAction {
 	@Resource
 	protected CatalogForm catalogForm;
 
+	/** ロガー */
+    Logger loggerDebug = (Logger)Logger.getInstance("debugLogger");
+    Logger loggerFatal = (Logger)Logger.getInstance("fatalLogger");
+
 	// 初期一覧の表示
 	@Execute(validator = false)
 	public String list() {
@@ -32,6 +37,19 @@ public class CatalogAction {
 		catalogForm.catalogList.catalogDtos = entity2dto(catalogService
 				.findAll());
 		catalogForm.offset = 0;
+		//loggertest
+        loggerDebug.debug("(DEBUG)debug!!!");
+        loggerDebug.info("(DEBUG)info!!!");
+        loggerDebug.warn("(DEBUG)warn!!!");
+        loggerDebug.error("(DEBUG)error!!!");
+        loggerDebug.fatal("(DEBUG)fatal!!!");
+
+        loggerFatal.debug("(FATAL)debug!!!");
+        loggerFatal.info("(FATAL)info!!!");
+        loggerFatal.warn("(FATAL)warn!!!");
+        loggerFatal.error("(FATAL)error!!!");
+        loggerFatal.fatal("(FATAL)fatal!!!");
+
 		return "catalog.jsp";
 	}
 
